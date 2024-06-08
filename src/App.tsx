@@ -1,7 +1,14 @@
+import { Header } from "./components/page-sections/Header";
+import { Text } from "./components/typography";
+
 function App() {
   return (
     <div className="bg-secondary">
-      <h1 className="text-3xl font-body font-normal">Hello world!</h1>
+      <Header />
+      <Text textVariant="caption">Jack n roll skupina</Text>
+      <Text textVariant="body">Jack n roll skupina</Text>
+      <Text textVariant="subtitle">Jack n roll skupina</Text>
+      <Text textVariant="title">Jack n roll skupina</Text>
     </div>
   );
 }
