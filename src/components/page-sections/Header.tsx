@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Flex } from "../containers";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { DropdownMenu } from "./dropdown-menu";
 
 export function Header() {
   return (
@@ -14,20 +15,9 @@ export function Header() {
         </Link>
       </Flex>
       <Flex className="hidden sm:flex justify-evenly gap-12">
-        <Link colorVariant="secondary" textVariant="body">
-          Band
-        </Link>
-        <Link colorVariant="secondary" textVariant="body">
-          Člani
-        </Link>
-        <Link colorVariant="secondary" textVariant="body">
-          Setlista
-        </Link>
-        <Link colorVariant="secondary" textVariant="body">
-          O nas
-        </Link>
+        <DropdownMenu />
       </Flex>
-      <div>
+      <Flex>
         <FontAwesomeIcon
           icon={faBars}
           color="white"
@@ -49,7 +39,7 @@ export function Header() {
             />
           </Link>
         </Flex>
-      </div>
+      </Flex>
     </header>
   );
 }
