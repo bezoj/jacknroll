@@ -2,6 +2,7 @@ interface ITextProps {
   children: React.ReactNode;
   textVariant?: "title" | "subtitle" | "body" | "caption";
   colorVariant?: "primary" | "secondary";
+  className?: string;
 }
 
 function getFontVariant(textVariant: string | undefined) {
@@ -36,12 +37,17 @@ function getColorVariant(colorVariant: string | undefined) {
   }
 }
 
-export function Text({ children, textVariant, colorVariant }: ITextProps) {
+export function Text({
+  children,
+  textVariant,
+  colorVariant,
+  className,
+}: ITextProps & React.HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
-      className={`font-body ${getFontVariant(textVariant)} ${getColorVariant(
-        colorVariant
-      )}`}
+      className={`font-body ${getFontVariant(
+        textVariant
+      )} ${className} ${getColorVariant(colorVariant)}`}
     >
       {children}
     </span>

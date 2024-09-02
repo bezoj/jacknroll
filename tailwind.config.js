@@ -12,6 +12,9 @@ export default {
       colors: {
         'primary': '#0a0a0a',
         'secondary': '#fafaf9'
+      },
+      backgroundImage: {
+        'landing': "url('../assets/landing-banner.jpg')",
       }
     },
   },
