@@ -8,7 +8,7 @@ interface ITextProps {
 function getFontVariant(textVariant: string | undefined) {
   switch (textVariant) {
     case "title": {
-      return "font-bold text-[40px]";
+      return "font-bold text-[50px]";
     }
     case "subtitle": {
       return "font-semibold text-[32px]";
