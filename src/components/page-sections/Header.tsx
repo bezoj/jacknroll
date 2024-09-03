@@ -5,16 +5,19 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Flex } from "../containers";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { DropdownMenu, menuItems } from "./dropdown-menu";
-import { useState } from "react";
 
-export function Header() {
-  const [IsMenuOpened, setIsMenuOpened] = useState(true);
+interface IHeaderProps {
+  isMenuOpened: boolean;
+  setIsMenuOpened: (opened: boolean) => void;
+}
+
+export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
   return (
     <>
-      <nav className="bg-primary min-h-[100px] flex justify-between items-center px-[30px] sticky top-0 shadow-bottom">
+      <nav className="bg-primary min-h-[100px] flex justify-between items-center px-[30px] sticky top-0 shadow-bottom z-50">
         <Flex>
           <Link>
-            <img src={logo} className="max-h-[60px]" />
+            <img src={logo} className="max-h-[60px]" alt="Logo" />
           </Link>
         </Flex>
         <Flex className="hidden sm:flex justify-evenly gap-12">
@@ -34,9 +37,7 @@ export function Header() {
             icon={faBars}
             color="white"
             className="sm:hidden size-6"
-            onClick={() => {
-              setIsMenuOpened(!IsMenuOpened);
-            }}
+            onClick={() => setIsMenuOpened(!isMenuOpened)}
           />
           <Flex className="hidden sm:flex justify-evenly gap-4">
             <Link>
@@ -56,7 +57,7 @@ export function Header() {
           </Flex>
         </Flex>
       </nav>
-      {IsMenuOpened && <DropdownMenu items={menuItems} />}
+      {isMenuOpened && <DropdownMenu items={menuItems} />}
     </>
   );
 }
