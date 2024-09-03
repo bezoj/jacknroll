@@ -9,7 +9,7 @@ interface IDropdownMenuProps {
 
 export function DropdownMenu({ items }: IDropdownMenuProps) {
   return (
-    <FlexColumn className="sticky top-[100px] left-0 sm:hidden justify-evenly bg-zinc-950  p-4 shadow-bottom items-center ">
+    <FlexColumn className="z-50 sticky top-[100px] left-0 sm:hidden justify-evenly bg-zinc-950  p-4 shadow-bottom items-center ">
       {items.map((item, index) => (
         <Link
           key={`${item.label}-${index}`}
