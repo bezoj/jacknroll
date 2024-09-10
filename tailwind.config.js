@@ -14,7 +14,8 @@ export default {
         'secondary': '#fafaf9'
       },
       boxShadow: {
-        'bottom': '0px 2px 5px 0px rgba(0,0,0,0.75)'
+        'bottom': '0px 2px 5px 0px rgba(0,0,0,0.75)',
+        'custom1': '0px 5px 15px rgba(0, 0, 0, 0.35)'
       }
     },
   },
