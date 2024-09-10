@@ -1,6 +1,6 @@
-import { FlexColumn } from "../containers";
+import { FlexColumn, IFlexColumnProps } from "../containers";
 
-interface ISectionProps {
+interface ISectionProps extends IFlexColumnProps {
   children?: React.ReactNode;
   className?: string;
 }
@@ -8,6 +8,11 @@ interface ISectionProps {
 export function Section({
   children,
   className,
+  ...rest
 }: ISectionProps & React.HTMLAttributes<HTMLSpanElement>) {
-  return <FlexColumn className={`${className}`}>{children}</FlexColumn>;
+  return (
+    <FlexColumn className={`bg-secondary p-4 ${className}`} {...rest}>
+      {children}
+    </FlexColumn>
+  );
 }

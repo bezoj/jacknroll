@@ -45,7 +45,7 @@ export function Text({
 }: ITextProps & React.HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
-      className={`font-body ${getFontVariant(
+      className={`font-body block ${getFontVariant(
         textVariant
       )} ${className} ${getColorVariant(colorVariant)}`}
     >

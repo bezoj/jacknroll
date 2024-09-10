@@ -5,6 +5,9 @@ interface IImageContainerprops {
   justifyContent?: string;
   alignItems?: string;
   flexDirection?: string;
+  imageOpacity?: "50" | "70" | "40";
+  height?: string;
+  width?: string;
 }
 
 export function ImageContainer({
