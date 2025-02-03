@@ -36,7 +36,7 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
           <FontAwesomeIcon
             icon={faBars}
             color="white"
-            className="sm:hidden size-6"
+            className="sm:hidden size-6 cursor-pointer"
             onClick={() => setIsMenuOpened(!isMenuOpened)}
           />
           <Flex className="hidden sm:flex justify-evenly gap-4">
@@ -44,14 +44,14 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
               <FontAwesomeIcon
                 icon={faInstagram}
                 color="white"
-                className="size-6"
+                className="size-6 cursor-pointer"
               />
             </Link>
             <Link>
               <FontAwesomeIcon
                 icon={faFacebook}
                 color="white"
-                className="size-6"
+                className="size-6 cursor-pointer"
               />
             </Link>
           </Flex>

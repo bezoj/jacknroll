@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Header } from "./components/page-sections/Header";
 import { LandingPage } from "./pages/LandingPage";
-import { MembersPage } from "./pages";
+import { AboutUspage, MembersPage } from "./pages";
 
 function App() {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -18,6 +18,7 @@ function App() {
       />
       <LandingPage />
       <MembersPage />
+      <AboutUspage />
     </div>
   );
 }
