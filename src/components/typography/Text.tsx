@@ -1,6 +1,6 @@
 interface ITextProps {
   children: React.ReactNode;
-  textVariant?: "title" | "subtitle" | "body" | "caption";
+  textVariant?: "title" | "subtitle" | "body" | "caption" | "body-bold";
   colorVariant?: "primary" | "secondary";
   className?: string;
 }
@@ -14,10 +14,13 @@ function getFontVariant(textVariant: string | undefined) {
       return "font-semibold text-[32px]";
     }
     case "body": {
-      return "font-medium text-[18px]";
+      return "text-[18px]";
     }
     case "caption": {
       return "font-medium text-[16px]";
+    }
+    case "body-bold": {
+      return "font-semibold text-[18px]";
     }
     default:
       return "font-normal";
