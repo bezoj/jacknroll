@@ -1,34 +1,34 @@
+import { forwardRef } from "react";
 import { Flex } from "../containers";
 import { Text } from "../typography";
 
-interface ITextInputProps {
+interface ITextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
-  name?: string;
-  placeholder?: string;
   title?: string;
-  required?: boolean;
   containerProps?: string;
+  errors?: string;
+  required?: boolean;
 }
 
-export function TextInput({
-  className,
-  name,
-  placeholder,
-  title,
-  required,
-  containerProps,
-}: ITextInputProps) {
-  return (
-    <div className={`flex flex-col gap-1 ${containerProps}`}>
-      <Flex>
-        <Text textVariant="body-bold">{title}</Text>
-        {required && <Text className="text-red-500"> * </Text>}
-      </Flex>
-      <input
-        name={name}
-        className={`border-b-[3px] font-body bg-gray-200 border-primary px-2 py-3  ${className}`}
-        placeholder={placeholder}
-      />
-    </div>
-  );
-}
+export const TextInput = forwardRef<HTMLInputElement, ITextInputProps>(
+  ({ className, title, containerProps, errors, required, ...rest }, ref) => {
+    return (
+      <div className={`flex flex-col gap-1 ${containerProps}`}>
+        {title && (
+          <Flex>
+            <Text textVariant="body-bold">{title}</Text>
+            {required && <Text className="text-red-500"> * </Text>}
+          </Flex>
+        )}
+        <input
+          ref={ref}
+          className={`border-b-[3px] font-body bg-gray-200 border-primary px-2 py-3 ${className}`}
+          {...rest}
+        />
+        {errors && <Text className="text-red-500 self-start">{errors}</Text>}
+      </div>
+    );
+  }
+);
+
+TextInput.displayName = "TextInput"; // Required for React devtools
