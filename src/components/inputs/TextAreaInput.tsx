@@ -32,7 +32,7 @@ export function TextAreaInput({
         name={name}
         cols={cols}
         rows={rows}
-        className={`border-b-2 bg-gray-200 border-primary px-2 py-3  ${className}`}
+        className={`border-b-[3px] font-body bg-gray-200 border-primary px-2 py-3  ${className}`}
         placeholder={placeholder}
       />
     </div>

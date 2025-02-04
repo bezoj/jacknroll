@@ -1,3 +1,4 @@
+import { Button } from "../components/buttons";
 import { Flex, FlexColumn } from "../components/containers";
 import { TextAreaInput } from "../components/inputs";
 import { TextInput } from "../components/inputs/TextInput";
@@ -41,6 +42,7 @@ export function ContactUsPage() {
           containerProps="flex-1"
           rows={5}
         />
+        <Button className="self-end" title="Pošlji!" type="submit" />
       </FlexColumn>
     </Section>
   );
