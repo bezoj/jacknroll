@@ -43,7 +43,7 @@ export function ImageCarousel() {
       <div className="absolute top-[50%] -translate-x-0 translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} />
       </div>
-      <div className="flex top-4 justify-center py-2 gap-2">
+      <div className="flex top-4 justify-center py-2 gap-2 my-[-40px]">
         {carouselImages.map((slide, slideIndex) => (
           <div className="flex cursor-pointer">
             <FontAwesomeIcon
