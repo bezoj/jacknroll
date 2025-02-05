@@ -5,7 +5,7 @@ import { Text } from "../components/typography";
 
 export function LandingPage() {
   return (
-    <ImageContainer imageUrl={LandingBanner}>
+    <ImageContainer elementId="band" imageUrl={LandingBanner}>
       <FlexColumn className="items-center justify-center text-center gap-[20px]">
         <Text colorVariant="secondary" textVariant="title">
           Pozdravljeni na naši spletni strani!

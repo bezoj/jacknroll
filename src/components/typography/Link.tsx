@@ -1,6 +1,6 @@
 import { Text } from "./Text";
 
-interface ILinkProps {
+interface IImgLinkProps {
   children: React.ReactNode;
   textVariant?: "title" | "subtitle" | "body" | "caption";
   colorVariant?: "primary" | "secondary";
@@ -8,13 +8,13 @@ interface ILinkProps {
   onClick?: () => void;
 }
 
-export function Link({
+export function ImgLink({
   children,
   textVariant,
   colorVariant,
   className,
   onClick,
-}: ILinkProps) {
+}: IImgLinkProps) {
   return (
     <Text
       textVariant={textVariant}

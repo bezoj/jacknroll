@@ -4,7 +4,11 @@ import { Text } from "../components/typography";
 
 export function AboutUspage() {
   return (
-    <Section className="text-center gap-[80px] p-[50px]" bgColor="primary">
+    <Section
+      className="text-center gap-[80px] p-[50px]"
+      bgColor="primary"
+      elementId="about-us"
+    >
       <Text textVariant="title" colorVariant="secondary">
         O nas
       </Text>

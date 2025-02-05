@@ -43,6 +43,7 @@ export function ContactUsPage() {
     <Section
       className="text-center gap-[20px] items-center"
       bgColor="secondary"
+      elementId="contact"
     >
       <Text textVariant="title" colorVariant="primary">
         Kontakt
