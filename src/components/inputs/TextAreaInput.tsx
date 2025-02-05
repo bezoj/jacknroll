@@ -8,17 +8,19 @@ interface ITextAreaInputProps
   title?: string;
   containerProps?: string;
   errors?: string;
+  required?: boolean;
 }
 
 export const TextAreaInput = forwardRef<
   HTMLTextAreaElement,
   ITextAreaInputProps
->(({ className, title, containerProps, errors, ...rest }, ref) => {
+>(({ className, title, containerProps, errors, required, ...rest }, ref) => {
   return (
     <div className={`flex flex-col gap-1 ${containerProps}`}>
       {title && (
         <Flex>
           <Text textVariant="body-bold">{title}</Text>
+          {required && <Text className="text-red-500"> * </Text>}
         </Flex>
       )}
       <textarea

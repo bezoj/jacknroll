@@ -1,4 +1,4 @@
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button } from "../components/buttons";
 import { Flex, FlexColumn } from "../components/containers";
 import { TextAreaInput } from "../components/inputs";
@@ -19,21 +19,23 @@ export function ContactUsPage() {
     resolver: zodResolver(contactUsSchema),
   });
 
-  const sendEmail = async (data: ContactUsSchemaType) => {
-    console.log("success", data);
+  const sendEmail = async (
+    //when you will need data in future for BE
+    data: ContactUsSchemaType,
+    e: any
+  ) => {
+    try {
+      const response = await emailjs.sendForm(
+        "service_83d6mrj",
+        "template_93etrmt",
+        e.target,
+        { publicKey: "8k0wIX06zPUVCY2PS" }
+      );
 
-    // try {
-    //   const response = await emailjs.sendForm(
-    //     "service_83d6mrj",
-    //     "template_93etrmt",
-    //     e.target,
-    //     { publicKey: "8k0wIX06zPUVCY2PS" }
-    //   );
-
-    //   console.log("SUCCESS!", response);
-    // } catch (error) {
-    //   console.error("FAILED...", error?.text || error);
-    // }
+      alert(`SUCCESS! ${response}`);
+    } catch (error) {
+      alert(`FAILED... ${error?.text || error}`);
+    }
     reset();
   };
 
@@ -50,8 +52,6 @@ export function ContactUsPage() {
         className="w-full flex justify-center"
       >
         <FlexColumn className="w-full max-w-[900px] p-4 gap-8">
-          {/* <input placeholder="name" {...register("fromNameSurname")} />
-          {errors.fromNameSurname?.message} */}
           <TextInput
             {...register("fromNameSurname")}
             title="Ime in priimek"
@@ -71,6 +71,7 @@ export function ContactUsPage() {
             {...register("event")}
             title="Dogodek"
             placeholder="Dogodek"
+            required
             errors={errors.event?.message}
           />
           <Flex className="w-full justify-stretch flex-wrap gap-8">
@@ -95,9 +96,15 @@ export function ContactUsPage() {
             placeholder="Vaše sporočilo"
             containerProps="flex-1"
             rows={5}
+            required
             errors={errors.message?.message}
           />
-          <Button className="md:self-end" title="Pošlji!" type="submit" />
+          <Button
+            className="md:self-end"
+            title="Pošlji!"
+            type="submit"
+            disabled={isSubmitting}
+          />
         </FlexColumn>
       </form>
     </Section>
