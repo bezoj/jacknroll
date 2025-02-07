@@ -1,13 +1,14 @@
 
 export interface IMenuItems{
-  id: number,
+  id: string,
   label: string,
   href: string
 }
 
 export const menuItems = [
-  {id: 1, label: "Band", href: "/band"},
-  {id: 2, label: "Člani", href: "/clani"},
-  {id: 3, label: "Setlista", href: "/setlista"},
-  {id: 4, label: "O nas", href: "/o-nas"},
+  {id: "band", label: "Band", href: "/band"},
+  {id: "members", label: "Člani", href: "/clani"},
+  {id: "about-us", label: "O nas", href: "/o-nas"},
+  {id: "contact", label: "Kontakt", href: "/kontakt"},
+  {id: "setlist", label: "Setlista", href: "/setlista"},
 ]

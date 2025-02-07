@@ -4,6 +4,12 @@ html {
     scroll-behavior: smooth;
 }
 
+.active {
+    color: red !important;
+    border-bottom: "3px solid #ff5733";
+    padding-bottom: "3px";
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

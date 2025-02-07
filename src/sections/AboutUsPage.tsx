@@ -1,15 +1,20 @@
 import { Flex, FlexColumn, ImageCarousel } from "../components/containers";
+import { ColumnDivider } from "../components/dividers";
 import { Section } from "../components/page-sections";
 import { Text } from "../components/typography";
 
 export function AboutUspage() {
   return (
-    <Section className="text-center gap-[80px] p-[50px]" bgColor="primary">
+    <Section
+      className="text-center gap-[80px] p-[50px]"
+      bgColor="primary"
+      elementId="about-us"
+    >
       <Text textVariant="title" colorVariant="secondary">
         O nas
       </Text>
-      <Flex className="justify-between items-start w-full gap-[100px]">
-        <FlexColumn className="flex-1 w-1/2 gap-[40px]">
+      <Flex className="flex-col items-center gap-4 md:flex-row md:justify-between md:w-full md:gap-[100px]">
+        <FlexColumn className="md:flex-1 md:w-1/2 gap-[40px]">
           <Text textVariant="subtitle" colorVariant="secondary">
             O Bendu?
           </Text>
@@ -26,13 +31,8 @@ export function AboutUspage() {
             dogovoru pa ponujajo tudi...
           </Text>
         </FlexColumn>
-
-        {/* Move Divider Down */}
-        <FlexColumn className="self-stretch flex items-center">
-          <hr className="border border-secondary h-full w-[2px]" />
-        </FlexColumn>
-
-        <FlexColumn className="flex-1 w-1/2 gap-[40px]">
+        <ColumnDivider className="border-secondary" />
+        <FlexColumn className="md:flex-1 md:w-1/2 gap-[40px]">
           <Text textVariant="subtitle" colorVariant="secondary">
             Ke špilamo?
           </Text>

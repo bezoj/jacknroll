@@ -1,4 +1,5 @@
-import { Link } from "../typography";
+import { Text } from "../typography";
+import { Link } from "react-scroll";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -16,19 +17,31 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
     <>
       <nav className="bg-primary min-h-[100px] flex justify-between items-center px-[30px] sticky top-0 shadow-bottom z-50">
         <Flex>
-          <Link>
-            <img src={logo} className="max-h-[60px]" alt="Logo" />
+          <Link to="band">
+            <img
+              src={logo}
+              className="max-h-[60px] cursor-pointer"
+              alt="Logo"
+            />
           </Link>
         </Flex>
         <Flex className="hidden sm:flex justify-evenly gap-12">
           {menuItems.map((item, index) => (
             <Link
-              key={`${item.label}-${index}`}
-              colorVariant="secondary"
-              textVariant="body"
-              className="p-2 hover:bg-secondary hover:text-primary"
+              spy={true}
+              to={item.id}
+              duration={200}
+              activeClass="active"
+              offset={-100}
             >
-              {item.label}
+              <Text
+                key={`${item.label}-${index}`}
+                colorVariant="secondary"
+                textVariant="body"
+                className="p-2 hover:bg-secondary hover:text-primary cursor-pointer active:border-b-2 active:border-secondary"
+              >
+                {item.label}
+              </Text>
             </Link>
           ))}
         </Flex>
@@ -40,20 +53,20 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
             onClick={() => setIsMenuOpened(!isMenuOpened)}
           />
           <Flex className="hidden sm:flex justify-evenly gap-4">
-            <Link>
+            <a href="https://www.instagram.com/_jacknroll_/">
               <FontAwesomeIcon
                 icon={faInstagram}
                 color="white"
                 className="size-6 cursor-pointer"
               />
-            </Link>
-            <Link>
+            </a>
+            <a href="https://www.facebook.com/Jacknroll4">
               <FontAwesomeIcon
                 icon={faFacebook}
                 color="white"
                 className="size-6 cursor-pointer"
               />
-            </Link>
+            </a>
           </Flex>
         </Flex>
       </nav>

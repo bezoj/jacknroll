@@ -3,6 +3,7 @@ interface ITextProps {
   textVariant?: "title" | "subtitle" | "body" | "caption" | "body-bold";
   colorVariant?: "primary" | "secondary";
   className?: string;
+  underlinedText?: boolean;
 }
 
 function getFontVariant(textVariant: string | undefined) {
@@ -45,12 +46,15 @@ export function Text({
   textVariant,
   colorVariant,
   className,
+  underlinedText,
 }: ITextProps & React.HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
-      className={`font-body block ${getFontVariant(
-        textVariant
-      )} ${className} ${getColorVariant(colorVariant)}`}
+      className={`font-body block ${
+        underlinedText && "border-b-[4px]"
+      } ${getFontVariant(textVariant)} ${className} ${getColorVariant(
+        colorVariant
+      )}`}
     >
       {children}
     </span>
