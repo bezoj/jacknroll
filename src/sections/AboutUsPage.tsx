@@ -60,7 +60,6 @@ export function AboutUspage() {
           </FlexColumn>
         </FlexColumn>
       </Flex>
-
       <ImageCarousel />
     </Section>
   );
