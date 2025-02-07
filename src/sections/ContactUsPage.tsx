@@ -11,6 +11,7 @@ import { contactUsSchema, ContactUsSchemaType } from "../schemas";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { ColumnDivider } from "../components/dividers";
+import { useRef } from "react";
 
 export function ContactUsPage() {
   const {
@@ -21,21 +22,24 @@ export function ContactUsPage() {
   } = useForm<ContactUsSchemaType>({
     resolver: zodResolver(contactUsSchema),
   });
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const sendEmail = async (e: any) => {
+  const sendEmail = async (e) => {
     try {
+      if (!formRef.current) return;
+
       const response = await emailjs.sendForm(
         "service_83d6mrj",
         "template_93etrmt",
-        e.target,
+        formRef.current,
         { publicKey: "8k0wIX06zPUVCY2PS" }
       );
 
       alert(`SUCCESS! ${response}`);
+      reset();
     } catch (error) {
       alert(`FAILED... ${error?.text || error}`);
     }
-    reset();
   };
 
   return (
@@ -77,6 +81,7 @@ export function ContactUsPage() {
         <form
           onSubmit={handleSubmit(sendEmail)}
           className="w-full flex md:flex-1 md:w-1/2"
+          ref={formRef}
         >
           <FlexColumn className="w-full max-w-[900px] p-4 gap-8">
             <TextInput
