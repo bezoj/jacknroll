@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Header } from "./components/page-sections/Header";
-import { LandingPage } from "./pages/LandingPage";
-import { AboutUspage, ContactUsPage, MembersPage } from "./pages";
+import { LandingPage } from "./sections/LandingPage";
+import { AboutUspage, ContactUsPage, MembersPage } from "./sections";
 
 function App() {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
