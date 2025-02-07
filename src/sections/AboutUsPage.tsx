@@ -1,4 +1,4 @@
-import { Flex, FlexColumn, ImageCarousel } from "../components/containers";
+import { Flex, FlexColumn } from "../components/containers";
 import { ColumnDivider } from "../components/dividers";
 import { Section } from "../components/page-sections";
 import { Text } from "../components/typography";
@@ -6,7 +6,7 @@ import { Text } from "../components/typography";
 export function AboutUspage() {
   return (
     <Section
-      className="text-center gap-[80px] p-[50px]"
+      className="text-center gap-[80px] p-[100px]"
       bgColor="primary"
       elementId="about-us"
     >
@@ -60,7 +60,7 @@ export function AboutUspage() {
           </FlexColumn>
         </FlexColumn>
       </Flex>
-      <ImageCarousel />
+      {/* <ImageCarousel /> */}
     </Section>
   );
 }

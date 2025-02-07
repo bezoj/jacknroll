@@ -40,7 +40,7 @@ export function ContactUsPage() {
 
   return (
     <Section
-      className="text-center gap-[20px] items-center"
+      className="text-center gap-[50px] p-[50px] items-center"
       bgColor="secondary"
       elementId="contact"
     >

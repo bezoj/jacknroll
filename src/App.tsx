@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Header } from "./components/page-sections/Header";
 import { LandingPage } from "./sections/LandingPage";
-import { AboutUspage, ContactUsPage, MembersPage } from "./sections";
+import {
+  AboutUspage,
+  ContactUsPage,
+  ImageCarouselSection,
+  MembersPage,
+} from "./sections";
 import { Footer } from "./components/page-sections/Footer";
 
 function App() {
@@ -20,6 +25,7 @@ function App() {
       <LandingPage />
       <MembersPage />
       <AboutUspage />
+      <ImageCarouselSection />
       <ContactUsPage />
       <Footer />
     </div>

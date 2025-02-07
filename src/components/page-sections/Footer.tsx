@@ -10,7 +10,7 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export function Footer() {
   return (
-    <Section className="py-[150px]" bgColor="primary">
+    <Section className="py-[100px]" bgColor="primary">
       <Flex className="justify-evenly">
         <FlexColumn className="gap-[30px]">
           <Text textVariant="subtitle" colorVariant="secondary">
