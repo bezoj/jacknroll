@@ -13,8 +13,8 @@ export function AboutUspage() {
       <Text textVariant="title" colorVariant="secondary">
         O nas
       </Text>
-      <Flex className="flex-col items-center gap-4 md:flex-row md:justify-between md:w-full md:gap-[100px]">
-        <FlexColumn className="md:flex-1 md:w-1/2 gap-[40px]">
+      <Flex className="flex-col items-center gap-[100px] md:flex-row md:justify-between md:w-full md:gap-[100px] md:items-start">
+        <FlexColumn className="items-center text-center md:flex-1 md:w-1/2 gap-[40px] md:text-left md:items-start">
           <Text textVariant="subtitle" colorVariant="secondary">
             O Bendu?
           </Text>
@@ -32,7 +32,7 @@ export function AboutUspage() {
           </Text>
         </FlexColumn>
         <ColumnDivider className="border-secondary" />
-        <FlexColumn className="md:flex-1 md:w-1/2 gap-[40px]">
+        <FlexColumn className="items-center text-center md:flex-1 md:w-1/2 gap-[40px] md:items-start md:text-left">
           <Text textVariant="subtitle" colorVariant="secondary">
             Ke špilamo?
           </Text>
@@ -60,7 +60,6 @@ export function AboutUspage() {
           </FlexColumn>
         </FlexColumn>
       </Flex>
-      {/* <ImageCarousel /> */}
     </Section>
   );
 }

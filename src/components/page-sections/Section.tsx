@@ -13,7 +13,7 @@ export function Section({
   ...rest
 }: ISectionProps & React.HTMLAttributes<HTMLSpanElement>) {
   return (
-    <FlexColumn className={`bg-${bgColor} p-4 ${className}`} {...rest}>
+    <FlexColumn className={`bg-${bgColor} ${className}`} {...rest}>
       {children}
     </FlexColumn>
   );

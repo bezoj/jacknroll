@@ -26,7 +26,7 @@ export function ImageCarousel() {
   }, [currentIndex]);
 
   return (
-    <div className="max-w-[1920px] h-[680px] w-full m-auto relative group">
+    <div className="h-[1080px] w-full relative group">
       <div
         style={{
           backgroundImage: `url(${carouselImages[currentIndex].imgSrc})`,
