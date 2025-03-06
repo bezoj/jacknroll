@@ -6,7 +6,7 @@ import { Text } from "../components/typography";
 export function AboutUspage() {
   return (
     <Section
-      className="text-center gap-[80px] p-[100px]"
+      className="text-center p-[30px] gap-[80px] md:p-[100px]"
       bgColor="primary"
       elementId="about-us"
     >

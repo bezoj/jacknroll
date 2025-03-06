@@ -54,15 +54,6 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
               Galerija
             </Text>
           </PageLink>
-          <PageLink to="setlist">
-            <Text
-              colorVariant="secondary"
-              textVariant="body"
-              className="p-2 hover:bg-secondary hover:text-primary cursor-pointer active:border-b-2 active:border-secondary"
-            >
-              Setlista
-            </Text>
-          </PageLink>
         </Flex>
         <Flex>
           <FontAwesomeIcon

@@ -44,7 +44,7 @@ export function ContactUsPage() {
 
   return (
     <Section
-      className="text-center gap-[50px] p-[50px] items-center"
+      className="text-center gap-[50px] p-[30px] md:p-[50px] items-center"
       bgColor="secondary"
       elementId="contact"
     >
@@ -83,7 +83,7 @@ export function ContactUsPage() {
           className="w-full flex md:flex-1 md:w-1/2"
           ref={formRef}
         >
-          <FlexColumn className="w-full max-w-[900px] p-4 gap-8">
+          <FlexColumn className="w-full max-w-[900px] gap-8">
             <TextInput
               {...register("fromNameSurname")}
               title="Ime in priimek"
