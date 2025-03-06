@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Roboto']
+        body: ['Oswald'],
       },
       colors: {
         'primary': '#0a0a0a',
