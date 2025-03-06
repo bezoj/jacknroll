@@ -12,7 +12,7 @@ import {
 
 export function MembersPage() {
   return (
-    <Section elementId="members" className="text-center gap-[20px] py-[100px]">
+    <Section elementId="members" className="text-center gap-[20px] py-[30px]">
       <Text textVariant="title" colorVariant="primary">
         Zasedba
       </Text>
