@@ -1,5 +1,6 @@
 import { Text } from "../typography";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as PageLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -17,17 +18,17 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
     <>
       <nav className="bg-primary min-h-[100px] flex justify-between items-center px-[30px] sticky top-0 shadow-bottom z-50">
         <Flex>
-          <Link to="band">
+          <ScrollLink to="band">
             <img
               src={logo}
               className="max-h-[60px] cursor-pointer"
               alt="Logo"
             />
-          </Link>
+          </ScrollLink>
         </Flex>
         <Flex className="hidden sm:flex justify-evenly gap-12">
           {menuItems.map((item, index) => (
-            <Link
+            <ScrollLink
               spy={true}
               to={item.id}
               duration={200}
@@ -42,8 +43,26 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
               >
                 {item.label}
               </Text>
-            </Link>
+            </ScrollLink>
           ))}
+          <PageLink to="gallery">
+            <Text
+              colorVariant="secondary"
+              textVariant="body"
+              className="p-2 hover:bg-secondary hover:text-primary cursor-pointer active:border-b-2 active:border-secondary"
+            >
+              Galerija
+            </Text>
+          </PageLink>
+          <PageLink to="setlist">
+            <Text
+              colorVariant="secondary"
+              textVariant="body"
+              className="p-2 hover:bg-secondary hover:text-primary cursor-pointer active:border-b-2 active:border-secondary"
+            >
+              Setlista
+            </Text>
+          </PageLink>
         </Flex>
         <Flex>
           <FontAwesomeIcon

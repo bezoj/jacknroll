@@ -24,7 +24,7 @@ export function ContactUsPage() {
   });
   const formRef = useRef<HTMLFormElement>(null);
 
-  const sendEmail = async (e) => {
+  const sendEmail = async () => {
     try {
       if (!formRef.current) return;
 
@@ -38,7 +38,7 @@ export function ContactUsPage() {
       alert(`SUCCESS! ${response}`);
       reset();
     } catch (error) {
-      alert(`FAILED... ${error?.text || error}`);
+      alert(`FAILED... ${error}`);
     }
   };
 

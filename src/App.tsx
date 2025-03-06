@@ -1,34 +1,15 @@
-import { useState } from "react";
-import { Header } from "./components/page-sections/Header";
-import { LandingPage } from "./sections/LandingPage";
-import {
-  AboutUspage,
-  ContactUsPage,
-  ImageCarouselSection,
-  MembersPage,
-} from "./sections";
-import { Footer } from "./components/page-sections/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { GalleryPage, HomePage, SetlistPage } from "./components/pages";
 
 function App() {
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
-
   return (
-    <div className="bg-secondary relative">
-      <Header isMenuOpened={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />
-      <div
-        className={`fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ${
-          isMenuOpened ? "block z-40" : "hidden"
-        }`}
-        style={{ top: "304px" }} // Adjust based on header + dropdown height
-        onClick={() => setIsMenuOpened(false)}
-      />
-      <LandingPage />
-      <MembersPage />
-      <AboutUspage />
-      <ImageCarouselSection />
-      <ContactUsPage />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/setlist" element={<SetlistPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+      </Routes>
+    </Router>
   );
 }
 

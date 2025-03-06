@@ -10,5 +10,4 @@ export const menuItems = [
   {id: "members", label: "Člani", href: "/clani"},
   {id: "about-us", label: "O nas", href: "/o-nas"},
   {id: "contact", label: "Kontakt", href: "/kontakt"},
-  {id: "setlist", label: "Setlista", href: "/setlista"},
 ]
