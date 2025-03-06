@@ -50,11 +50,11 @@ export function Footer() {
             </Link>
           </FlexColumn>
           <ColumnDivider />
-          <FlexColumn className="items-center gap-[30px]">
+          <FlexColumn className="items-center md:items-start justify-evenly gap-[40px]">
             <Text colorVariant="secondary" textVariant="subtitle">
               Kontakt
             </Text>
-            <FlexColumn className="items-center gap-3">
+            <FlexColumn className="items-center md:items-start gap-3">
               <Flex className="gap-3 items-center">
                 <FontAwesomeIcon
                   icon={faPhone}
@@ -69,7 +69,9 @@ export function Footer() {
                 />
                 <Text colorVariant="secondary">jackroll2019@gmail.com</Text>
               </Flex>
-              <Flex className="justify-start gap-4">
+            </FlexColumn>
+            <FlexColumn>
+              <Flex className="w-full justify-center gap-4">
                 <a href="https://www.instagram.com/_jacknroll_/">
                   <FontAwesomeIcon
                     icon={faInstagram}
