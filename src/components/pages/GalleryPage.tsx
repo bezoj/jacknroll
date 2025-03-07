@@ -26,7 +26,6 @@ export function GalleryPage() {
         >
           Galerija
         </Text>
-        <div className="w-6"></div>
       </Flex>
       <div>
         <GalleryContainer />
