@@ -1,5 +1,14 @@
 import { Img1, Img10, Img11, Img12, Img13, Img14, Img15, Img16, Img17, Img18, Img19, Img2, Img20, Img21, Img22, Img23, Img24, Img25, Img26, Img27, Img28, Img29, Img3, Img30, Img31, Img32, Img33, Img34, Img35, Img36, Img37, Img38, Img4, Img5, Img6, Img7, Img8, Img9,  } from "../assets/gallery-images"
 
+export const galleryPreviewImages = [
+    {src: Img1},
+    {src: Img2},
+    {src: Img3},
+    {src: Img4},
+    {src: Img5},
+    {src: Img6},
+]
+
 export const galleryImages = [
     {src: Img1},
     {src: Img2},
