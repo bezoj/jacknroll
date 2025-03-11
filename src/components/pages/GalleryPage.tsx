@@ -31,9 +31,9 @@ export function GalleryPage() {
       <div>
         <GalleryContainer>
           {galleryImages.map((img) => (
-            <div className="w-full">
+            <div className="w-full aspect-[4/3] overflow-hidden">
               <img
-                className="object-cover h-full max-w-full"
+                className="w-full h-full object-cover"
                 src={img.src}
                 alt=""
               />
