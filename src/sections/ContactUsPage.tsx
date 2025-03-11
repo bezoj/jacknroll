@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Button, DownloadButton } from "../components/buttons";
 import { Flex, FlexColumn } from "../components/containers";
-import { Rider } from "../assets/files";
+import { Rider, Setlist } from "../assets/files";
 import { TextAreaInput } from "../components/inputs";
 import { TextInput } from "../components/inputs/TextInput";
 import { Section } from "../components/page-sections";
@@ -52,8 +52,8 @@ export function ContactUsPage() {
       <Text textVariant="title" colorVariant="primary">
         Kontakt
       </Text>
-      <Flex className="flex-col gap-[40px] md:flex-row md:justify-between md:w-full ">
-        <FlexColumn className="md:flex-1 md:w-1/2 md:py-[200px] md:justify-center items-center gap-[100px]">
+      <Flex className="flex-col gap-[60px] md:flex-row md:justify-between md:w-full ">
+        <FlexColumn className="md:flex-1 md:w-1/2 md:py-[200px] md:justify-center items-center gap-10 md:gap-[100px]">
           <FlexColumn className="justify-around items-center gap-4">
             <Text textVariant="subtitle">
               Piši nam če želiš pravo dozo rokenrola in mainstream muzike!
@@ -86,10 +86,7 @@ export function ContactUsPage() {
               hospitality zahteve skupine
             </Text>
             <Flex className="gap-[20px] justify-center">
-              <DownloadButton
-                title="Setlista"
-                href="/images/myw3schoolsimage.jpg"
-              />
+              <DownloadButton title="Setlista" href={Setlist} />
               <DownloadButton title="Rider" href={Rider} />
             </Flex>
           </FlexColumn>

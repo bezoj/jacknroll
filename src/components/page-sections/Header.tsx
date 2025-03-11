@@ -1,6 +1,6 @@
 import { Text } from "../typography";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as PageLink } from "react-router-dom";
+import { Link, Link as PageLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -19,11 +19,13 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
       <nav className="bg-primary min-h-[100px] flex justify-between items-center px-[30px] sticky top-0 shadow-bottom z-50">
         <Flex>
           <ScrollLink to="band">
-            <img
-              src={logo}
-              className="max-h-[60px] cursor-pointer"
-              alt="Logo"
-            />
+            <Link to="/">
+              <img
+                src={logo}
+                className="max-h-[60px] cursor-pointer"
+                alt="Logo"
+              />
+            </Link>
           </ScrollLink>
         </Flex>
         <Flex className="hidden sm:flex justify-evenly gap-12">

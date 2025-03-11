@@ -5,6 +5,7 @@ import { ColumnDivider } from "../components/dividers";
 import { Section } from "../components/page-sections";
 import { Text } from "../components/typography";
 import { galleryPreviewImages } from "../stores/galleryImages";
+import { Setlist } from "../assets/files";
 
 export function AboutUspage() {
   return (
@@ -61,11 +62,7 @@ export function AboutUspage() {
               Guns'n'Roses, AC/DC, Green day, Joe Cocker, Eric Clapton, ...
             </Text>
           </FlexColumn>
-          <DownloadButton
-            title="Setlista"
-            variant="black"
-            href="/images/myw3schoolsimage.jpg"
-          />
+          <DownloadButton title="Setlista" variant="black" href={Setlist} />
         </FlexColumn>
       </Flex>
       <FlexColumn gap="50px">
