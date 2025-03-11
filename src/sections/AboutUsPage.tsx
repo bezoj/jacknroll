@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "../components/buttons";
 import { Flex, FlexColumn, GalleryContainer } from "../components/containers";
 import { ColumnDivider } from "../components/dividers";
@@ -62,8 +63,12 @@ export function AboutUspage() {
           </FlexColumn>
         </FlexColumn>
       </Flex>
+      <FlexColumn gap="50px">
       <Text textVariant="title" colorVariant="secondary">
         Na kraju zločina...
+      </Text>
+      <Text textVariant="body" colorVariant="secondary">
+        Nekaj utrinkov iz raličnih špilov, čag, fešt... 
       </Text>
       <GalleryContainer>
         {galleryPreviewImages.map((img) => (
@@ -76,7 +81,10 @@ export function AboutUspage() {
           </div>
         ))}
       </GalleryContainer>
-      <Button title="Pojdi na galerijo" variant="black" />
+      <Link to="/gallery">
+      <Button title="Pojdi na galerijo" variant="black" className="self-center"/>
+      </Link>
+      </FlexColumn>
     </Section>
   );
 }

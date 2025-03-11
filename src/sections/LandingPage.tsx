@@ -1,11 +1,14 @@
-import { LandingBanner } from "../assets";
-import { FlexColumn } from "../components/containers";
-import { ImageContainer } from "../components/containers/ImageContainer";
+import { FlexColumn, ImageCarousel } from "../components/containers";
 import { Text } from "../components/typography";
+import { carouselImages } from "../stores";
 
 export function LandingPage() {
   return (
-    <ImageContainer elementId="band" imageUrl={LandingBanner}>
+    <ImageCarousel
+      elementId="band"
+      className="items-center justify-center"
+      items={carouselImages}
+    >
       <FlexColumn className="items-center justify-center text-center gap-[20px]">
         <Text colorVariant="secondary" textVariant="title">
           Pozdravljeni na naši spletni strani!
@@ -14,6 +17,6 @@ export function LandingPage() {
           Smo skupina Jack'n'roll!
         </Text>
       </FlexColumn>
-    </ImageContainer>
+    </ImageCarousel>
   );
 }
