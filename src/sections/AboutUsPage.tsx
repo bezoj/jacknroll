@@ -1,7 +1,10 @@
-import { Flex, FlexColumn } from "../components/containers";
+import { Link } from "react-router-dom";
+import { Button } from "../components/buttons";
+import { Flex, FlexColumn, GalleryContainer } from "../components/containers";
 import { ColumnDivider } from "../components/dividers";
 import { Section } from "../components/page-sections";
 import { Text } from "../components/typography";
+import { galleryPreviewImages } from "../stores/galleryImages";
 
 export function AboutUspage() {
   return (
@@ -11,7 +14,7 @@ export function AboutUspage() {
       elementId="about-us"
     >
       <Text textVariant="title" colorVariant="secondary">
-        O nas
+        Nekaj o nas
       </Text>
       <Flex className="flex-col items-center gap-[100px] md:flex-row md:justify-between md:w-full md:gap-[100px] md:items-start">
         <FlexColumn className="items-center text-center md:flex-1 md:w-1/2 gap-[40px] md:text-left md:items-start">
@@ -60,6 +63,28 @@ export function AboutUspage() {
           </FlexColumn>
         </FlexColumn>
       </Flex>
+      <FlexColumn gap="50px">
+      <Text textVariant="title" colorVariant="secondary">
+        Na kraju zločina...
+      </Text>
+      <Text textVariant="body" colorVariant="secondary">
+        Nekaj utrinkov iz raličnih špilov, čag, fešt... 
+      </Text>
+      <GalleryContainer>
+        {galleryPreviewImages.map((img) => (
+          <div className="w-full">
+            <img
+              className="object-cover h-full max-w-full"
+              src={img.src}
+              alt=""
+            />
+          </div>
+        ))}
+      </GalleryContainer>
+      <Link to="/gallery">
+      <Button title="Pojdi na galerijo" variant="black" className="self-center"/>
+      </Link>
+      </FlexColumn>
     </Section>
   );
 }

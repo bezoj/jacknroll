@@ -4,14 +4,15 @@ import { Section } from "../page-sections";
 import { Text } from "../typography";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { galleryImages } from "../../stores/galleryImages";
 
 export function GalleryPage() {
   return (
     <Section
       bgColor="primary"
-      className="justify-center items-center p-[50px] gap-[50px]"
+      className="justify-center items-center p-[30px] gap-[30px]"
     >
-      <Flex className="bg-primary min-h-[100px] justify-between items-center sticky top-0 w-full m-auto">
+      <Flex className="bg-primary min-h-[150px] justify-between items-center sticky top-0 w-full m-auto">
         <Link to="/">
           <FontAwesomeIcon
             icon={faArrowLeft}
@@ -28,7 +29,17 @@ export function GalleryPage() {
         </Text>
       </Flex>
       <div>
-        <GalleryContainer />
+        <GalleryContainer>
+          {galleryImages.map((img) => (
+            <div className="w-full">
+              <img
+                className="object-cover h-full max-w-full"
+                src={img.src}
+                alt=""
+              />
+            </div>
+          ))}
+        </GalleryContainer>
       </div>
     </Section>
   );

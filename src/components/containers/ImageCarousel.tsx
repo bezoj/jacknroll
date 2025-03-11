@@ -1,7 +1,19 @@
-import { carouselImages } from "../../mappers/ImageMapper";
 import { useEffect, useState } from "react";
+import { IImage } from "../../types/interfaces";
 
-export function ImageCarousel() {
+interface IImageCarouselProps {
+  children?: React.ReactNode;
+  className?: string;
+  items: IImage[];
+  elementId?: string;
+}
+
+export function ImageCarousel({
+  children,
+  className,
+  items,
+  elementId,
+}: IImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalTime = 3000;
 
@@ -12,9 +24,7 @@ export function ImageCarousel() {
   // };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === carouselImages.length - 1 ? 0 : prev + 1
-    );
+    setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
   };
 
   useEffect(() => {
@@ -26,13 +36,15 @@ export function ImageCarousel() {
   }, [currentIndex]);
 
   return (
-    <div className="h-[500px] md:h-[1080px] w-full relative group">
+    <div id={elementId} className="h-screen md:h-[900px] w-full relative group">
       <div
         style={{
-          backgroundImage: `url(${carouselImages[currentIndex].imgSrc})`,
+          backgroundImage: `url(${items[currentIndex].src})`,
         }}
-        className="w-full h-full bg-center bg-cover duration-500"
-      ></div>
+        className={`flex w-full h-full bg-center bg-cover duration-500 ${className}`}
+      >
+        {children}
+      </div>
       {/* Refactor component a little and uncoment when needed in near future */}
       {/* <div className="absolute top-[50%] -translate-x-0 translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <FontAwesomeIcon icon={faChevronLeft} onClick={prevSlide} />

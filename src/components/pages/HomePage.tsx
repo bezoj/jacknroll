@@ -3,7 +3,6 @@ import { Header } from "../page-sections";
 import {
   AboutUspage,
   ContactUsPage,
-  ImageCarouselSection,
   LandingPage,
   MembersPage,
 } from "../../sections";
@@ -25,7 +24,7 @@ export function HomePage() {
       <LandingPage />
       <MembersPage />
       <AboutUspage />
-      <ImageCarouselSection />
+      {/* <ImageCarouselSection /> */}
       <ContactUsPage />
       <Footer />
     </div>

@@ -28,7 +28,7 @@ export function MembersPage() {
           />
           <ImageCard
             imageUrl={KatBanner}
-            title="Katarina Vaupotič"
+            title="Katarina Bezjak"
             subtitle="Sax, Vokal"
           />
           <ImageCard
