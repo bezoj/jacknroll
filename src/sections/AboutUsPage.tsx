@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "../components/buttons";
+import { Button, DownloadButton } from "../components/buttons";
 import { Flex, FlexColumn, GalleryContainer } from "../components/containers";
 import { ColumnDivider } from "../components/dividers";
 import { Section } from "../components/page-sections";
@@ -61,6 +61,11 @@ export function AboutUspage() {
               Guns'n'Roses, AC/DC, Green day, Joe Cocker, Eric Clapton, ...
             </Text>
           </FlexColumn>
+          <DownloadButton
+            title="Setlista"
+            variant="black"
+            href="/images/myw3schoolsimage.jpg"
+          />
         </FlexColumn>
       </Flex>
       <FlexColumn gap="50px">
