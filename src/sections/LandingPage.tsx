@@ -1,13 +1,13 @@
 import { FlexColumn, ImageCarousel } from "../components/containers";
 import { Text } from "../components/typography";
-import { carouselImages } from "../stores";
+import { carouselLandingImages } from "../stores";
 
 export function LandingPage() {
   return (
     <ImageCarousel
       elementId="band"
       className="items-center justify-center"
-      items={carouselImages}
+      items={carouselLandingImages}
     >
       <FlexColumn className="items-center justify-center text-center gap-[20px]">
         <Text colorVariant="secondary" textVariant="title">

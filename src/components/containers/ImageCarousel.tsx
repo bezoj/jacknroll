@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { carouselImages } from "../../stores";
 import { IImage } from "../../types/interfaces";
 
 interface IImageCarouselProps {
   children?: React.ReactNode;
   className?: string;
   items: IImage[];
+  elementId?: string;
 }
 
 export function ImageCarousel({
   children,
   className,
   items,
+  elementId,
 }: IImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalTime = 3000;
@@ -23,9 +24,7 @@ export function ImageCarousel({
   // };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === carouselImages.length - 1 ? 0 : prev + 1
-    );
+    setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
   };
 
   useEffect(() => {
@@ -37,7 +36,7 @@ export function ImageCarousel({
   }, [currentIndex]);
 
   return (
-    <div className="h-screen md:h-[900px] w-full relative group">
+    <div id={elementId} className="h-screen md:h-[900px] w-full relative group">
       <div
         style={{
           backgroundImage: `url(${items[currentIndex].src})`,

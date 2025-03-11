@@ -5,7 +5,7 @@ import {
 } from "../assets/landing-carousel-images";
 import { IImage } from "../types/interfaces/images";
 
-export const carouselImages: IImage[] = [
+export const carouselLandingImages: IImage[] = [
   { src: LandingBanner1 },
   { src: LandingBanner2 },
   { src: LandingBanner3 },
