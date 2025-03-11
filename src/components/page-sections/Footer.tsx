@@ -31,7 +31,7 @@ export function Footer() {
                     key={`${item.label}-${index}`}
                     colorVariant="secondary"
                     textVariant="body"
-                    className="hover:bg-secondary hover:text-primary cursor-pointer active:border-b-2 active:border-secondary"
+                    className="transition hover:bg-secondary hover:text-primary cursor-pointer active:border-b-2 active:border-secondary"
                   >
                     {item.label}
                   </Text>
