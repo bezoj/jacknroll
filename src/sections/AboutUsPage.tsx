@@ -64,26 +64,30 @@ export function AboutUspage() {
         </FlexColumn>
       </Flex>
       <FlexColumn gap="50px">
-      <Text textVariant="title" colorVariant="secondary">
-        Na kraju zločina...
-      </Text>
-      <Text textVariant="body" colorVariant="secondary">
-        Nekaj utrinkov iz raličnih špilov, čag, fešt... 
-      </Text>
-      <GalleryContainer>
-        {galleryPreviewImages.map((img) => (
-          <div className="w-full">
-            <img
-              className="object-cover h-full max-w-full"
-              src={img.src}
-              alt=""
-            />
-          </div>
-        ))}
-      </GalleryContainer>
-      <Link to="/gallery">
-      <Button title="Pojdi na galerijo" variant="black" className="self-center"/>
-      </Link>
+        <Text textVariant="title" colorVariant="secondary">
+          Na kraju zločina...
+        </Text>
+        <Text textVariant="body" colorVariant="secondary">
+          Nekaj utrinkov iz raličnih špilov, čag, fešt...
+        </Text>
+        <GalleryContainer>
+          {galleryPreviewImages.map((img) => (
+            <div className="w-full aspect-[4/3] overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src={img.src}
+                alt=""
+              />
+            </div>
+          ))}
+        </GalleryContainer>
+        <Link to="/gallery">
+          <Button
+            title="Pojdi na galerijo"
+            variant="black"
+            className="self-center"
+          />
+        </Link>
       </FlexColumn>
     </Section>
   );
