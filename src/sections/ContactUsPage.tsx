@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Button } from "../components/buttons";
+import { Button, DownloadButton } from "../components/buttons";
 import { Flex, FlexColumn } from "../components/containers";
+import { Rider, Setlist } from "../assets/files";
 import { TextAreaInput } from "../components/inputs";
 import { TextInput } from "../components/inputs/TextInput";
 import { Section } from "../components/page-sections";
@@ -51,31 +52,44 @@ export function ContactUsPage() {
       <Text textVariant="title" colorVariant="primary">
         Kontakt
       </Text>
-      <Flex className="flex-col gap-[40px] md:flex-row md:justify-between md:w-full ">
-        <FlexColumn className="md:flex-1 md:w-1/2 md:py-[200px] md:justify-center items-center gap-4">
-          <Text textVariant="subtitle">
-            Piši nam če želiš pravo dozo rokenrola in mainstream muzike!
-          </Text>
-          <Text>
-            Izpolni obrazec tukaj, ali pa nam piši ter sledi na socialnih
-            omrežjih
-          </Text>
-          <Flex className="gap-4">
-            <a href="https://www.instagram.com/_jacknroll_/">
-              <FontAwesomeIcon
-                icon={faInstagram}
-                color="black"
-                className="size-[40px] cursor-pointer"
-              />
-            </a>
-            <a href="https://www.facebook.com/Jacknroll4">
-              <FontAwesomeIcon
-                icon={faFacebook}
-                color="black"
-                className="size-[38px] cursor-pointer"
-              />
-            </a>
-          </Flex>
+      <Flex className="flex-col gap-[60px] md:flex-row md:justify-between md:w-full ">
+        <FlexColumn className="md:flex-1 md:w-1/2 md:py-[200px] md:justify-center items-center gap-10 md:gap-[100px]">
+          <FlexColumn className="justify-around items-center gap-4">
+            <Text textVariant="subtitle">
+              Piši nam če želiš pravo dozo rokenrola in mainstream muzike!
+            </Text>
+            <Text>
+              Izpolni obrazec tukaj, ali pa nam piši ter sledi na socialnih
+              omrežjih
+            </Text>
+            <Flex className="gap-4">
+              <a href="https://www.instagram.com/_jacknroll_/">
+                <FontAwesomeIcon
+                  icon={faInstagram}
+                  color="black"
+                  className="size-[40px] cursor-pointer"
+                />
+              </a>
+              <a href="https://www.facebook.com/Jacknroll4">
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  color="black"
+                  className="size-[38px] cursor-pointer"
+                />
+              </a>
+            </Flex>
+          </FlexColumn>
+          <FlexColumn className="gap-4">
+            <Text textVariant="subtitle">Dokumenti za organizatorje</Text>
+            <Text>
+              Prenesi si našo bogato obloženo setlisto ter tehnične in
+              hospitality zahteve skupine
+            </Text>
+            <Flex className="gap-[20px] justify-center">
+              <DownloadButton title="Setlista" href={Setlist} />
+              <DownloadButton title="Rider" href={Rider} />
+            </Flex>
+          </FlexColumn>
         </FlexColumn>
         <ColumnDivider borderColorVariant="primary" />
         <form
