@@ -3,10 +3,17 @@ import { Flex, GalleryContainer } from "../containers";
 import { Section } from "../page-sections";
 import { Text } from "../typography";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { galleryImages } from "../../stores/galleryImages";
+import { useEffect } from "react";
 
 export function GalleryPage() {
+  const pathname = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+
   return (
     <Section
       bgColor="primary"
