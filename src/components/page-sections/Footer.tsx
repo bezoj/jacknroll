@@ -8,6 +8,7 @@ import { Section } from "./Section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Rider, Setlist } from "../../assets/files";
 
 export function Footer() {
   return (
@@ -51,10 +52,14 @@ export function Footer() {
                 </Text>
               </PageLink>
               <Text colorVariant="secondary" textVariant="body">
-                Rider
+                <a href={Rider} download>
+                  Rider
+                </a>
               </Text>
               <Text colorVariant="secondary" textVariant="body">
-                Setlista
+                <a href={Setlist} download>
+                  Setlista
+                </a>
               </Text>
               <Text colorVariant="secondary" textVariant="body">
                 Promo kit

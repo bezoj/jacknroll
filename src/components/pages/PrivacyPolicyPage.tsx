@@ -31,12 +31,12 @@ export function PrivacyPolicyPage() {
             <Text
               textVariant="title"
               colorVariant="secondary"
-              className="absolute left-1/2 transform -translate-x-1/2 text-[50px] md:text-[70px]"
+              className="absolute left-1/2 transform -translate-x-1/2 text-[50px] lg:text-[70px]"
             >
               Politika zasebnosti
             </Text>
           </Flex>
-          <FlexColumn className="w-full items-start justify-start gap-14">
+          <FlexColumn className="w-full items-start justify-start gap-14 min-h-screen">
             <FlexColumn className="gap-4">
               <Text textVariant="subtitle" colorVariant="secondary">
                 Splošno
