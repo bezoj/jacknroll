@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import logo from "../../assets/logo.png";
+import { Link as PageLink } from "react-router-dom";
 import { Flex, FlexColumn } from "../containers";
 import { ColumnDivider } from "../dividers";
 import { Text } from "../typography";
@@ -8,6 +8,7 @@ import { Section } from "./Section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Rider, Setlist } from "../../assets/files";
 
 export function Footer() {
   return (
@@ -41,13 +42,29 @@ export function Footer() {
           </FlexColumn>
           <ColumnDivider />
           <FlexColumn className="hidden md:flex md:flex-col md:gap-[30px] md:justify-center">
-            <Link to="band">
-              <img
-                src={logo}
-                className="max-h-[150px] cursor-pointer"
-                alt="Logo"
-              />
-            </Link>
+            <Text colorVariant="secondary" textVariant="subtitle">
+              Dokumenti
+            </Text>
+            <FlexColumn className="gap-3">
+              <PageLink to="/privacy-policy">
+                <Text colorVariant="secondary" textVariant="body">
+                  Politika zasebnosti
+                </Text>
+              </PageLink>
+              <Text colorVariant="secondary" textVariant="body">
+                <a href={Rider} download>
+                  Rider
+                </a>
+              </Text>
+              <Text colorVariant="secondary" textVariant="body">
+                <a href={Setlist} download>
+                  Setlista
+                </a>
+              </Text>
+              <Text colorVariant="secondary" textVariant="body">
+                Promo kit
+              </Text>
+            </FlexColumn>
           </FlexColumn>
           <ColumnDivider />
           <FlexColumn className="items-center md:items-start justify-evenly gap-[40px]">

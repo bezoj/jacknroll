@@ -1,2 +1,3 @@
-export * from "./TextInput"
-export * from "./TextAreaInput"
+export * from "./TextInput";
+export * from "./TextAreaInput";
+export * from "./Checkbox";

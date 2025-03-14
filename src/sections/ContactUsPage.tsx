@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Button, DownloadButton } from "../components/buttons";
 import { Flex, FlexColumn } from "../components/containers";
 import { Rider, Setlist } from "../assets/files";
-import { TextAreaInput } from "../components/inputs";
+import { Checkbox, TextAreaInput } from "../components/inputs";
 import { TextInput } from "../components/inputs/TextInput";
 import { Section } from "../components/page-sections";
 import { Text } from "../components/typography";
@@ -144,6 +144,12 @@ export function ContactUsPage() {
               rows={5}
               required
               errors={errors.message?.message}
+            />
+            <Checkbox
+              {...register("terms")}
+              label="Strinjam se z poslanimi podatki in njihovo obdelavo"
+              id="gdpr"
+              errors={errors.terms?.message}
             />
             <Button
               className="md:self-end"
