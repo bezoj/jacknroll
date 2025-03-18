@@ -19,7 +19,7 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
       <nav className="bg-primary min-h-[100px] flex justify-between items-center px-[30px] sticky top-0 shadow-bottom z-50">
         <Flex>
           <ScrollLink to="band">
-            <Link to="/">
+            <Link to="band">
               <img
                 src={logo}
                 className="max-h-[60px] cursor-pointer"
