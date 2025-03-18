@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <Section className="p-[20px] md:p-0" bgColor="primary">
       <FlexColumn className="gap-[40px] md:gap-0">
-        <Flex className="flex-col items-center md:flex-row md:justify-evenly md:py-[60px]">
+        <Flex className="flex-col gap-[40px] items-center md:flex-row md:justify-evenly md:py-[60px]">
           <FlexColumn className="hidden md:flex md:gap-[30px]">
             <Text textVariant="subtitle" colorVariant="secondary">
               Strani
@@ -41,7 +41,7 @@ export function Footer() {
             </FlexColumn>
           </FlexColumn>
           <ColumnDivider />
-          <FlexColumn className="hidden md:flex md:flex-col md:gap-[30px] md:justify-center">
+          <FlexColumn className="items-center text-center gap-[30px] md:flex md:text-left md:items-start md:flex-col md:gap-[30px] md:justify-center">
             <Text colorVariant="secondary" textVariant="subtitle">
               Dokumenti
             </Text>
@@ -67,7 +67,7 @@ export function Footer() {
             </FlexColumn>
           </FlexColumn>
           <ColumnDivider />
-          <FlexColumn className="items-center md:items-start justify-evenly gap-[40px]">
+          <FlexColumn className="items-center gap-[30px] justify-evenly md:items-start md:gap-[40px]">
             <Text colorVariant="secondary" textVariant="subtitle">
               Kontakt
             </Text>

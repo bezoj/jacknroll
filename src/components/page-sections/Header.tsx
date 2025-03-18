@@ -82,7 +82,12 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
           </Flex>
         </Flex>
       </nav>
-      {isMenuOpened && <DropdownMenu items={menuItems} />}
+      {isMenuOpened && (
+        <DropdownMenu
+          items={menuItems}
+          onMenuItemClick={() => setIsMenuOpened(false)}
+        />
+      )}
     </>
   );
 }
