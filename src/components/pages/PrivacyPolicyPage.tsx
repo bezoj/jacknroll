@@ -31,7 +31,7 @@ export function PrivacyPolicyPage() {
             <Text
               textVariant="title"
               colorVariant="secondary"
-              className="absolute left-1/2 transform -translate-x-1/2 text-[50px] lg:text-[70px]"
+              className="absolute left-1/2 transform -translate-x-1/2 text-[45px] lg:text-[70px]"
             >
               Politika zasebnosti
             </Text>
