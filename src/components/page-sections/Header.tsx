@@ -3,7 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { Link, Link as PageLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { Flex } from "../containers";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { DropdownMenu, menuItems } from "./dropdown-menu";
