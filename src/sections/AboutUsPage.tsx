@@ -23,16 +23,24 @@ export function AboutUspage() {
             O Bendu?
           </Text>
           <Text textVariant="body-bold" colorVariant="secondary">
-            "... Smo klasični rokenrol bend iz okolice Ptuja, ki jih združuje
-            ljubezen do glasbe."
+            "... Smo klasični rokenrol bend iz okolice Ptuja, katere združuje
+            ljubezen do glasbe..."
           </Text>
           <Text textVariant="body" colorVariant="secondary">
             Smo slovenska glasbena rock skupina, ki na prizorišče prinese vsem
             znano slovensko, yugo in angleško glasbo ter zabava publiko do
-            jutranjih ur. Skupina je primerna za nastopanje tako na večjih
-            odprtih prizoriščih kot na rojstnodnevnih, barskih, klubskih oziroma
-            zasebnih manjših dogodkih. Za posebne priložnosti oziroma po
-            dogovoru pa ponujajo tudi...
+            jutranjih ur. Nastopamo tako na večjih odprtih prizoriščih kot na
+            rojstnodnevnih, barskih, klubskih oziroma zasebnih manjših dogodkih.
+          </Text>
+          <Text textVariant="body" colorVariant="secondary">
+            Skupina deluje že od leta 2018. Skozi ta leta so odigrali že več kot
+            100 različnih špilov, prav tako pa se je v teh letih spreminjala
+            tudi podoba benda. Zaradi vse večje želje po širjenju repertuarja na
+            druge glasbene zvrsti se je bendu leta 2020 pridružila Katarina
+            Bezjak na saksofonu. Prav tako so se menjali nekateri člani skupine
+            in danes skupina šteje 5 članov, ki radi preigravajo vsem znane
+            slovenske ter tuje rock, hard rock ter pop-rock hite, seveda pa se
+            na repertoarju znajdejo tudi kakšni alternativni komadi.
           </Text>
         </FlexColumn>
         <ColumnDivider className="border-secondary" />
@@ -53,7 +61,7 @@ export function AboutUspage() {
             </Text>
             <Text textVariant="body" colorVariant="secondary">
               Parni valjak, Prljavo kazalište, Bijelo dugme, Crvena Jabuka,
-              Zabranjeno pušenje, Partibrejkers, ...
+              Zabranjeno pušenje, Partibrejkers, Dubioza kolektiv ...
             </Text>
             <Text textVariant="body-bold" colorVariant="secondary">
               Tuja muzika:

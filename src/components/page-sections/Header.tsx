@@ -3,7 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { Link, Link as PageLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { Flex } from "../containers";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { DropdownMenu, menuItems } from "./dropdown-menu";
@@ -58,12 +58,20 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
           </PageLink>
         </Flex>
         <Flex>
-          <FontAwesomeIcon
-            icon={faBars}
-            color="white"
-            className="sm:hidden size-6 cursor-pointer"
-            onClick={() => setIsMenuOpened(!isMenuOpened)}
-          />
+          {isMenuOpened ? (
+            <FontAwesomeIcon
+              icon={faX}
+              color="white"
+              className="sm:hidden size-6 cursor-pointer p"
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faBars}
+              color="white"
+              className="sm:hidden size-6 cursor-pointer"
+              onClick={() => setIsMenuOpened(!isMenuOpened)}
+            />
+          )}
           <Flex className="hidden sm:flex justify-evenly gap-4">
             <a href="https://www.instagram.com/_jacknroll_/">
               <FontAwesomeIcon
@@ -82,7 +90,12 @@ export function Header({ isMenuOpened, setIsMenuOpened }: IHeaderProps) {
           </Flex>
         </Flex>
       </nav>
-      {isMenuOpened && <DropdownMenu items={menuItems} />}
+      {isMenuOpened && (
+        <DropdownMenu
+          items={menuItems}
+          onMenuItemClick={() => setIsMenuOpened(false)}
+        />
+      )}
     </>
   );
 }
