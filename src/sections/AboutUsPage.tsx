@@ -70,7 +70,7 @@ export function AboutUspage() {
               Guns'n'Roses, AC/DC, Green day, Joe Cocker, Eric Clapton, ...
             </Text>
           </FlexColumn>
-          <DownloadButton title="Setlista" variant="black" href={Setlist} />
+          {/* <DownloadButton title="Setlista" variant="black" href={Setlist} /> */}
         </FlexColumn>
       </Flex>
       <FlexColumn gap="50px">
