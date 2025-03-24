@@ -1,6 +1,6 @@
 import { DownloadButton } from "../components/buttons";
 import { Flex, FlexColumn } from "../components/containers";
-import { Rider, Setlist } from "../assets/files";
+import { Rider } from "../assets/files";
 import { Section } from "../components/page-sections";
 import { Text } from "../components/typography";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -47,12 +47,9 @@ export function ContactUsPage() {
           </FlexColumn>
           <FlexColumn className="gap-4">
             <Text textVariant="subtitle">Dokumenti za organizatorje</Text>
-            <Text>
-              Prenesi si našo bogato obloženo setlisto ter tehnične in
-              hospitality zahteve skupine
-            </Text>
+            <Text>Prenesi si tehnične in hospitality zahteve skupine</Text>
             <Flex className="gap-[20px] justify-center">
-              <DownloadButton title="Setlista" href={Setlist} />
+              {/* <DownloadButton title="Setlista" href={Setlist} /> */}
               <DownloadButton title="Rider" href={Rider} />
             </Flex>
           </FlexColumn>
