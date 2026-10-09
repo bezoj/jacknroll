@@ -3,10 +3,19 @@ import {
   LandingBanner2,
   LandingBanner3,
 } from "../assets/landing-carousel-images";
-import { IImage } from "../types/interfaces/images";
+import { IImage } from "../types/interfaces";
 
 export const carouselLandingImages: IImage[] = [
-  { src: LandingBanner1 },
-  { src: LandingBanner2 },
-  { src: LandingBanner3 },
+  {
+    src: LandingBanner1,
+    alt: "Jack 'n' Roll na odru pred publiko",
+  },
+  {
+    src: LandingBanner2,
+    alt: "Jack 'n' Roll med koncertom, pogled iz publike",
+  },
+  {
+    src: LandingBanner3,
+    alt: "Člani Jack 'n' Roll na odru",
+  },
 ];
