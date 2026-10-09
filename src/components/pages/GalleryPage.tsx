@@ -1,53 +1,48 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Flex, GalleryContainer } from "../containers";
-import { Section } from "../page-sections";
-import { Text } from "../typography";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Link, useLocation } from "react-router-dom";
-import { galleryImages } from "../../stores/galleryImages";
-import { useEffect } from "react";
+import { useState } from "react";
+import { SiteShell } from "@/components/layout/SiteShell";
+import { Lightbox } from "@/components/gallery/Lightbox";
+import { PhotoButton } from "@/components/gallery/PhotoButton";
+import { withAlt } from "@/lib/photos";
+import { galleryImages } from "@/stores/galleryImages";
+import { cn } from "@/lib/utils";
 
 export function GalleryPage() {
-  const pathname = useLocation();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname]);
+  const photos = withAlt(galleryImages, "Fotografija z nastopa Jack 'n' Roll");
+  const [index, setIndex] = useState<number | null>(null);
 
   return (
-    <Section
-      bgColor="primary"
-      className="justify-center items-center p-[30px] gap-[30px]"
-    >
-      <Flex className="bg-primary min-h-[150px] justify-between items-center sticky top-0 w-full m-auto">
-        <Link to="/">
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            color="white"
-            className="text-2xl"
-          />
-        </Link>
-        <Text
-          textVariant="title"
-          colorVariant="secondary"
-          className="absolute left-1/2 transform -translate-x-1/2"
-        >
-          Galerija
-        </Text>
-      </Flex>
-      <div>
-        <GalleryContainer>
-          {galleryImages.map((img) => (
-            <div className="w-full aspect-[4/3] overflow-hidden">
-              <img
-                className="w-full h-full object-cover"
-                src={img.src}
-                alt=""
+    <SiteShell title="Galerija">
+      <div className="content-frame px-5 pb-20 pt-12 md:px-10 md:pt-16 lg:px-14">
+        <p className="font-condensed text-xs uppercase tracking-[0.28em] text-muted-foreground">
+          Fotografije
+        </p>
+        <div className="mt-4 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <h1 className="font-display text-[clamp(4.5rem,12vw,8.5rem)] leading-[0.8]">
+            Galerija
+          </h1>
+          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:pb-3 md:text-base">
+            Nekaj utrinkov iz različnih špilov, čag, fešt...
+          </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3 lg:grid-cols-4">
+          {photos.map((photo, photoIndex) => {
+            const feature = photoIndex % 9 === 0;
+            return (
+              <PhotoButton
+                key={`${photo.src}-${photoIndex}`}
+                photo={photo}
+                priority={photoIndex < 2}
+                onClick={() => setIndex(photoIndex)}
+                className={cn(
+                  feature ? "col-span-2 aspect-[16/10]" : "aspect-[3/4]"
+                )}
               />
-            </div>
-          ))}
-        </GalleryContainer>
+            );
+          })}
+        </div>
       </div>
-    </Section>
+      <Lightbox images={photos} index={index} onIndexChange={setIndex} />
+    </SiteShell>
   );
 }

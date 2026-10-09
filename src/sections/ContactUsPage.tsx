@@ -1,62 +1,67 @@
-import { DownloadButton } from "../components/buttons";
-import { Flex, FlexColumn } from "../components/containers";
-import { Rider } from "../assets/files";
-import { Section } from "../components/page-sections";
-import { Text } from "../components/typography";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { ColumnDivider } from "../components/dividers";
-import { ContactUsForm } from "../features/forms";
+import { Rider } from "@/assets/files";
+import { SocialLinks } from "@/components/layout/SocialLinks";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { ContactUsForm } from "@/features/forms";
+import { contactDetails } from "@/lib/site";
 
 export function ContactUsPage() {
   return (
-    <Section
-      className="text-center gap-[50px] p-[30px] md:p-[50px] items-center"
-      bgColor="secondary"
-      elementId="contact"
-    >
-      <Text textVariant="title" colorVariant="primary">
-        Kontakt
-      </Text>
-      <Flex className="flex-col gap-[60px] md:flex-row md:justify-between md:w-full ">
-        <FlexColumn className="md:flex-1 md:w-1/2 md:py-[200px] md:justify-center items-center gap-10 md:gap-[100px]">
-          <FlexColumn className="justify-around items-center gap-4">
-            <Text textVariant="subtitle">
-              Piši nam če želiš pravo dozo rokenrola in mainstream muzike!
-            </Text>
-            <Text>
-              Izpolni obrazec tukaj, ali pa nam piši ter sledi na socialnih
-              omrežjih
-            </Text>
-            <Flex className="gap-4">
-              <a href="https://www.instagram.com/_jacknroll_/">
-                <FontAwesomeIcon
-                  icon={faInstagram}
-                  color="black"
-                  className="size-[40px] cursor-pointer"
-                />
+    <section id="contact" className="scroll-mt-24 border-t border-border">
+      <div className="content-frame grid lg:grid-cols-2">
+        <div className="px-5 py-16 md:px-10 lg:px-14 lg:py-24">
+          <p className="font-condensed text-xs uppercase tracking-[0.28em] text-muted-foreground">
+            Kontakt
+          </p>
+          <h2 className="mt-4 max-w-xl font-display text-[clamp(2.8rem,5vw,4.6rem)] leading-[0.9]">
+            Piši nam če želiš pravo dozo rokenrola in mainstream muzike!
+          </h2>
+          <p className="mt-6 max-w-md text-base leading-relaxed text-foreground/80">
+            Izpolni obrazec tukaj, ali pa nam piši ter sledi na socialnih
+            omrežjih
+          </p>
+
+          <Separator className="my-10" />
+
+          <ul className="space-y-3 text-lg">
+            <li>
+              <a
+                href={`tel:${contactDetails.phone}`}
+                className="underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+              >
+                {contactDetails.phoneDisplay}
               </a>
-              <a href="https://www.facebook.com/Jacknroll4">
-                <FontAwesomeIcon
-                  icon={faFacebook}
-                  color="black"
-                  className="size-[38px] cursor-pointer"
-                />
+            </li>
+            <li>
+              <a
+                href={`mailto:${contactDetails.email}`}
+                className="underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+              >
+                {contactDetails.email}
               </a>
-            </Flex>
-          </FlexColumn>
-          <FlexColumn className="gap-4">
-            <Text textVariant="subtitle">Dokumenti za organizatorje</Text>
-            <Text>Prenesi si tehnične in hospitality zahteve skupine</Text>
-            <Flex className="gap-[20px] justify-center">
-              {/* <DownloadButton title="Setlista" href={Setlist} /> */}
-              <DownloadButton title="Rider" href={Rider} />
-            </Flex>
-          </FlexColumn>
-        </FlexColumn>
-        <ColumnDivider borderColorVariant="primary" />
-        <ContactUsForm />
-      </Flex>
-    </Section>
+            </li>
+          </ul>
+          <SocialLinks labelled className="mt-6" />
+
+          <div className="mt-14">
+            <h3 className="font-display text-4xl leading-none">
+              Dokumenti za organizatorje
+            </h3>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Prenesi si tehnične in hospitality zahteve skupine
+            </p>
+            <Button variant="outline" className="mt-6" asChild>
+              <a href={Rider} download>
+                Rider
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <div className="border-t border-border px-5 py-16 md:px-10 lg:border-l lg:border-t-0 lg:px-14 lg:py-24">
+          <ContactUsForm className="max-w-xl" />
+        </div>
+      </div>
+    </section>
   );
 }

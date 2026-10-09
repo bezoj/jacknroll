@@ -1,32 +1,20 @@
-import { useState } from "react";
-import { Header } from "../page-sections";
+import { SiteShell } from "@/components/layout/SiteShell";
 import {
-  AboutUspage,
+  AboutUsPage,
   ContactUsPage,
+  GalleryPreviewSection,
   LandingPage,
   MembersPage,
-} from "../../sections";
-import { Footer } from "../page-sections/Footer";
+} from "@/sections";
 
 export function HomePage() {
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
-
   return (
-    <div className="bg-secondary relative">
-      <Header isMenuOpened={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />
-      <div
-        className={`fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ${
-          isMenuOpened ? "block z-40" : "hidden"
-        }`}
-        style={{ top: "304px" }} // Adjust based on header + dropdown height
-        onClick={() => setIsMenuOpened(false)}
-      />
+    <SiteShell>
       <LandingPage />
       <MembersPage />
-      <AboutUspage />
-      {/* <ImageCarouselSection /> */}
+      <AboutUsPage />
+      <GalleryPreviewSection />
       <ContactUsPage />
-      <Footer />
-    </div>
+    </SiteShell>
   );
 }
