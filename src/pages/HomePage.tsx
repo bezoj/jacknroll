@@ -1,4 +1,4 @@
-import { SiteShell } from "@/components/layout/SiteShell";
+import { SiteShell } from "@/layout/SiteShell";
 import {
   AboutUsPage,
   ContactUsPage,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SiteShell } from "@/components/layout/SiteShell";
+import { SiteShell } from "@/layout/SiteShell";
 import { Lightbox } from "@/components/gallery/Lightbox";
 import { PhotoButton } from "@/components/gallery/PhotoButton";
 import { withAlt } from "@/lib/photos";
@@ -35,7 +35,7 @@ export function GalleryPage() {
                 priority={photoIndex < 2}
                 onClick={() => setIndex(photoIndex)}
                 className={cn(
-                  feature ? "col-span-2 aspect-[16/10]" : "aspect-[3/4]"
+                  feature ? "col-span-2 aspect-[16/10]" : "aspect-[3/4]",
                 )}
               />
             );

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { GalleryPage, HomePage, PrivacyPolicyPage } from "./components/pages";
+import { GalleryPage, HomePage, PrivacyPolicyPage } from "./pages";
 
 function App() {
   return (

@@ -5,22 +5,17 @@ import { PhotoButton } from "@/components/gallery/PhotoButton";
 import { Button } from "@/components/ui/button";
 import { withAlt } from "@/lib/photos";
 import { galleryPreviewImages } from "@/stores/galleryImages";
-
-const layouts = [
-  "sm:col-span-4 sm:row-span-2 min-h-[280px] sm:min-h-full",
-  "sm:col-span-2 min-h-[220px]",
-  "sm:col-span-2 min-h-[220px]",
-  "sm:col-span-2 min-h-[200px]",
-  "sm:col-span-2 min-h-[200px]",
-  "sm:col-span-2 min-h-[200px]",
-];
+import { previewLayouts, previewPhotoAlt } from "./consts/gallery-preview";
 
 export function GalleryPreviewSection() {
-  const photos = withAlt(galleryPreviewImages, "Utrinek z nastopa Jack 'n' Roll");
+  const photos = withAlt(galleryPreviewImages, previewPhotoAlt);
   const [index, setIndex] = useState<number | null>(null);
 
   return (
-    <section className="scroll-mt-24 border-t border-border" aria-labelledby="gallery-preview-title">
+    <section
+      className="scroll-mt-24 border-t border-border"
+      aria-labelledby="gallery-preview-title"
+    >
       <div className="content-frame px-5 py-16 md:px-10 md:py-24 lg:px-14">
         <div className="mb-10 flex flex-col justify-between gap-8 md:mb-14 md:flex-row md:items-end">
           <h2
@@ -48,7 +43,7 @@ export function GalleryPreviewSection() {
               photo={photo}
               priority={photoIndex === 0}
               onClick={() => setIndex(photoIndex)}
-              className={layouts[photoIndex] ?? "min-h-[200px]"}
+              className={previewLayouts[photoIndex] ?? "min-h-[200px]"}
             />
           ))}
         </div>
