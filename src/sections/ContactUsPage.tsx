@@ -1,5 +1,5 @@
 import { Rider } from "@/assets/files";
-import { SocialLinks } from "@/components/layout/SocialLinks";
+import { SocialLinks } from "@/layout/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ContactUsForm } from "@/features/forms";

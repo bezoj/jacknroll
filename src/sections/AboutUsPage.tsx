@@ -1,22 +1,6 @@
 import { bandPhotoStyle } from "@/lib/band-photo";
 import { carouselLandingImages } from "@/stores";
-
-const repertoire = [
-  {
-    title: "Slovenska muzika",
-    artists:
-      "Mi2, Big foot mama, Siddharta, Vlado kreslin, Zablujena generacija, Mambo kings, ...",
-  },
-  {
-    title: "Yugo muzika",
-    artists:
-      "Parni valjak, Prljavo kazalište, Bijelo dugme, Crvena Jabuka, Zabranjeno pušenje, Partibrejkers, Dubioza kolektiv ...",
-  },
-  {
-    title: "Tuja muzika",
-    artists: "Guns'n'Roses, AC/DC, Green day, Joe Cocker, Eric Clapton, ...",
-  },
-];
+import { repertoire } from "./consts/about";
 
 export function AboutUsPage() {
   const liveShot = carouselLandingImages[1];
@@ -86,24 +70,24 @@ export function AboutUsPage() {
 
       <div className="border-t border-border">
         <div className="content-frame">
-        <div className="px-5 py-12 md:px-10 lg:px-14">
-          <h3 className="font-display text-[clamp(3rem,6vw,5.5rem)] leading-none">
-            Ke špilamo?
-          </h3>
-        </div>
-        <div className="grid border-t border-border md:grid-cols-3">
-          {repertoire.map((group) => (
-            <div
-              key={group.title}
-              className="border-b border-border px-5 py-10 last:border-b-0 md:border-b-0 md:border-r md:px-10 md:py-14 md:last:border-r-0 lg:px-14"
-            >
-              <h4 className="font-condensed text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                {group.title}
-              </h4>
-              <p className="mt-4 text-lg leading-relaxed">{group.artists}</p>
-            </div>
-          ))}
-        </div>
+          <div className="px-5 py-12 md:px-10 lg:px-14">
+            <h3 className="font-display text-[clamp(3rem,6vw,5.5rem)] leading-none">
+              Ke špilamo?
+            </h3>
+          </div>
+          <div className="grid border-t border-border md:grid-cols-3">
+            {repertoire.map((group) => (
+              <div
+                key={group.title}
+                className="border-b border-border px-5 py-10 last:border-b-0 md:border-b-0 md:border-r md:px-10 md:py-14 md:last:border-r-0 lg:px-14"
+              >
+                <h4 className="font-condensed text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                  {group.title}
+                </h4>
+                <p className="mt-4 text-lg leading-relaxed">{group.artists}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

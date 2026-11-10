@@ -1,15 +1,22 @@
-import { useRef, useState, type ReactNode } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { contactUsSchema, ContactUsSchemaType } from "@/schemas";
+import { contactUsSchema, type ContactUsSchemaType } from "@/schemas";
 import { cn } from "@/lib/utils";
+import {
+  contactFormDefaults,
+  contactPairFields,
+  contactTextFields,
+  emailJsConfig,
+  formStatusCopy,
+  messageField,
+} from "./consts";
+import { Field } from "./Field";
+import { TermsConsent } from "./TermsConsent";
 
 interface ContactUsFormProps {
   className?: string;
@@ -26,15 +33,7 @@ export function ContactUsForm({ className }: ContactUsFormProps) {
     formState: { errors, isSubmitting },
   } = useForm<ContactUsSchemaType>({
     resolver: zodResolver(contactUsSchema),
-    defaultValues: {
-      fromNameSurname: "",
-      emailFrom: "",
-      event: "",
-      location: "",
-      date: "",
-      message: "",
-      terms: false,
-    },
+    defaultValues: contactFormDefaults,
   });
 
   const sendEmail = async () => {
@@ -43,10 +42,10 @@ export function ContactUsForm({ className }: ContactUsFormProps) {
 
     try {
       await emailjs.sendForm(
-        "service_83d6mrj",
-        "template_93etrmt",
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
         formRef.current,
-        { publicKey: "8k0wIX06zPUVCY2PS" }
+        { publicKey: emailJsConfig.publicKey },
       );
       setStatus("success");
       reset();
@@ -62,135 +61,61 @@ export function ContactUsForm({ className }: ContactUsFormProps) {
       onSubmit={handleSubmit(sendEmail)}
       className={cn("flex flex-col gap-8", className)}
     >
-      <Field
-        id="fromNameSurname"
-        label="Ime in priimek"
-        required
-        error={errors.fromNameSurname?.message}
-      >
-        <Input
-          id="fromNameSurname"
-          placeholder="Ime in priimek"
-          autoComplete="name"
-          aria-invalid={Boolean(errors.fromNameSurname)}
-          aria-describedby={
-            errors.fromNameSurname ? "fromNameSurname-error" : undefined
-          }
-          {...register("fromNameSurname")}
-        />
-      </Field>
-
-      <Field
-        id="emailFrom"
-        label="Email"
-        required
-        error={errors.emailFrom?.message}
-      >
-        <Input
-          id="emailFrom"
-          type="email"
-          placeholder="Vaš email"
-          autoComplete="email"
-          aria-invalid={Boolean(errors.emailFrom)}
-          aria-describedby={errors.emailFrom ? "emailFrom-error" : undefined}
-          {...register("emailFrom")}
-        />
-      </Field>
-
-      <Field id="event" label="Dogodek" required error={errors.event?.message}>
-        <Input
-          id="event"
-          placeholder="Dogodek"
-          aria-invalid={Boolean(errors.event)}
-          aria-describedby={errors.event ? "event-error" : undefined}
-          {...register("event")}
-        />
-      </Field>
+      {contactTextFields.map((field) => (
+        <Field
+          key={field.id}
+          id={field.id}
+          label={field.label}
+          required
+          error={errors[field.id]?.message}
+        >
+          <Input
+            id={field.id}
+            type={"type" in field ? field.type : "text"}
+            placeholder={field.placeholder}
+            autoComplete={"autoComplete" in field ? field.autoComplete : undefined}
+            aria-invalid={Boolean(errors[field.id])}
+            aria-describedby={errors[field.id] ? `${field.id}-error` : undefined}
+            {...register(field.id)}
+          />
+        </Field>
+      ))}
 
       <div className="grid gap-8 sm:grid-cols-2">
-        <Field id="location" label="Lokacija" error={errors.location?.message}>
-          <Input
-            id="location"
-            placeholder="Lokacija"
-            aria-invalid={Boolean(errors.location)}
-            aria-describedby={errors.location ? "location-error" : undefined}
-            {...register("location")}
-          />
-        </Field>
-        <Field id="date" label="Datum" error={errors.date?.message}>
-          <Input
-            id="date"
-            placeholder="Datum"
-            aria-invalid={Boolean(errors.date)}
-            aria-describedby={errors.date ? "date-error" : undefined}
-            {...register("date")}
-          />
-        </Field>
+        {contactPairFields.map((field) => (
+          <Field key={field.id} id={field.id} label={field.label} error={errors[field.id]?.message}>
+            <Input
+              id={field.id}
+              placeholder={field.placeholder}
+              aria-invalid={Boolean(errors[field.id])}
+              aria-describedby={errors[field.id] ? `${field.id}-error` : undefined}
+              {...register(field.id)}
+            />
+          </Field>
+        ))}
       </div>
 
-      <Field
-        id="message"
-        label="Vaše sporočilo"
-        required
-        error={errors.message?.message}
-      >
+      <Field id={messageField.id} label={messageField.label} required error={errors.message?.message}>
         <Textarea
-          id="message"
-          placeholder="Vaše sporočilo"
+          id={messageField.id}
+          placeholder={messageField.placeholder}
           rows={5}
           aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? "message-error" : undefined}
-          {...register("message")}
+          aria-describedby={errors.message ? `${messageField.id}-error` : undefined}
+          {...register(messageField.id)}
         />
       </Field>
 
-      <div className="flex flex-col gap-2">
-        <div className="flex items-start gap-3">
-          <Controller
-            name="terms"
-            control={control}
-            render={({ field }) => (
-              <Checkbox
-                id="terms"
-                checked={field.value}
-                onCheckedChange={(value) => field.onChange(value === true)}
-                onBlur={field.onBlur}
-                ref={field.ref}
-                aria-invalid={Boolean(errors.terms)}
-                aria-describedby={errors.terms ? "terms-error" : undefined}
-              />
-            )}
-          />
-          <div className="space-y-2">
-            <Label
-              htmlFor="terms"
-              className="cursor-pointer font-sans text-sm normal-case tracking-normal text-foreground"
-            >
-              Strinjam se z poslanimi podatki in njihovo obdelavo
-            </Label>
-            <Link
-              to="/privacy-policy"
-              className="block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
-            >
-              Politika zasebnosti
-            </Link>
-          </div>
-        </div>
-        {errors.terms?.message ? (
-          <p id="terms-error" className="text-xs uppercase tracking-[0.12em]">
-            {errors.terms.message}
-          </p>
-        ) : null}
-      </div>
+      <TermsConsent control={control} error={errors.terms?.message} />
 
       {status === "success" ? (
         <p role="status" className="border border-foreground px-4 py-3 text-sm">
-          Sporočilo je poslano. Hvala, oglasimo se.
+          {formStatusCopy.success}
         </p>
       ) : null}
       {status === "error" ? (
         <p role="alert" className="border border-foreground px-4 py-3 text-sm">
-          Pošiljanje ni uspelo. Piši nam na jackroll2019@gmail.com.
+          {formStatusCopy.error}
         </p>
       ) : null}
 
@@ -198,34 +123,5 @@ export function ContactUsForm({ className }: ContactUsFormProps) {
         {isSubmitting ? "Pošiljam" : "Pošlji"}
       </Button>
     </form>
-  );
-}
-
-function Field({
-  id,
-  label,
-  required,
-  error,
-  children,
-}: {
-  id: string;
-  label: string;
-  required?: boolean;
-  error?: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="flex flex-col gap-2">
-      <Label htmlFor={id}>
-        {label}
-        {required ? <span aria-hidden="true"> *</span> : null}
-      </Label>
-      {children}
-      {error ? (
-        <p id={`${id}-error`} className="text-xs uppercase tracking-[0.12em]">
-          {error}
-        </p>
-      ) : null}
-    </div>
   );
 }
